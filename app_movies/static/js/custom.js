@@ -1,4 +1,4 @@
-
+// list movie
 $(document).ready(async function () {
     let movies = await fetch('/movies/movie')
     movies = await movies.json()
@@ -15,6 +15,7 @@ $(document).ready(async function () {
 
 });
 
+// list single movie
 $(document).on('click', '.detail', async function(){
     let movie = await fetch('/movies/movie/'+$(this).data('id'))
     movie = await movie.json()
@@ -25,6 +26,7 @@ $(document).on('click', '.detail', async function(){
     $('#detail-list').html(template);
 });
 
+// update movie
 $(document).on('click', '.update', async function(){
     let movie = await fetch('/movies/movie/'+$(this).data('id'))
     movie = await movie.json()
@@ -67,7 +69,7 @@ $(document).on('click', '.update', async function(){
 
 });
 
-
+// delete movie
 $(document).on('click', '.delete', async function () {
     try {
          const res = await fetch('/movies/movie/'+$(this).data('id'), { method: "DELETE" });
@@ -78,7 +80,4 @@ $(document).on('click', '.delete', async function () {
      catch (err) {
          return console.error(err);
      }
- }
-
-
-);
+ });

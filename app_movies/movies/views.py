@@ -1,10 +1,7 @@
 from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.utils.decorators import method_decorator
-from django.views.decorators.csrf import csrf_exempt
-from rest_framework.response import Response
 
-from rest_framework import generics
+from rest_framework.response import Response
 from rest_framework import viewsets
 
 from movies.serializers import CategorySerializer, KeywordSerializer, MovieSerializer
