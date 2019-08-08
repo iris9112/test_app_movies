@@ -8,7 +8,8 @@ $(document).ready(async function () {
         template += `${movie.id} ${movie.title} <br><br>`;
         template += ` <button type="button" data-id="${movie.id}" class="btn btn-primary detail">Detalle</button>`
         template += ` <button type="button" data-id="${movie.id}" class="btn btn-success update" data-toggle="modal" data-target="#modalUpdate">Actualizar</button>`
-        template += ` <button type="button" data-id="${movie.id}" class="btn btn-danger detele">Eliminar</button> <br><br>`
+        template += ` <button type="button" data-id="${movie.id}" class="btn btn-danger delete">Eliminar</button>`
+        template += ` <br><br>`
     })
     $('#movies-list').html(template);
 
@@ -66,3 +67,18 @@ $(document).on('click', '.update', async function(){
 
 });
 
+
+$(document).on('click', '.delete', async function () {
+    try {
+         const res = await fetch('/movies/movie/'+$(this).data('id'), { method: "DELETE" });
+         const res_1 = await res.json();
+         console.log('Deleted:', res_1.message);
+         return res_1;
+     }
+     catch (err) {
+         return console.error(err);
+     }
+ }
+
+
+);

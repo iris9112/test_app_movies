@@ -3,32 +3,20 @@
 {% load static %}
 
 {% block content %}
-  <p>Page for movies</p>
-  <!-- <a class="nav-link" href="{% url 'movies:movie-list' %}">Movies List</a> -->
-  
-<div>
-    <table class="table">
-        <thead>
-          <tr>
-            <th>Movie</th>
-            <th>Detail</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-                <div id="movies-list"></div>
-            </td>
-            <td>
-                <div id="detail-list"></div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+  <p>List Movies</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <div id="movies-list"></div>
+    </div>
+    <div class="col-sm">
+      <div id="detail-list"></div>
+    </div>
+  </div>
 </div>
 
-
-  <!-- Modal -->
+ <!-- Modal -->
   <div class="modal fade" id="modalUpdate" role="dialog">
       <div class="modal-dialog modal-md">
         <div class="modal-content">
