@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>API MOVIES</h2>
+  <a class="nav-link" href="{% url 'movies:movie-list' %}">Movies List</a>
+  <a class="nav-link" href="{% url 'movies:category-list' %}">Categories List</a>
+  <a class="nav-link" href="{% url 'movies:keyword-list' %}">KeyWords List</a>
+
+{% endblock %}

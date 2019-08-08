@@ -1,5 +1,8 @@
 from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.response import Response
 
 from rest_framework import generics
 from rest_framework import viewsets
@@ -12,6 +15,10 @@ class HomePage(LoginRequiredMixin, TemplateView):
     template_name = 'movies/movies_page.html'
 
 
+class ApiPage(LoginRequiredMixin, TemplateView):
+    template_name = 'movies/api_movies.html'    
+
+    
 class CategoryViewSet(LoginRequiredMixin, viewsets.ModelViewSet):
     queryset = Category.objects.all().order_by('name')
     serializer_class = CategorySerializer
