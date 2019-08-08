@@ -66,3 +66,19 @@ $(document).on('click', '.update', async function(){
     $('#formUpdate').html(form);
 
 });
+
+
+$(document).on('click', '.delete', async function () {
+    try {
+         const res = await fetch('/movies/movie/'+$(this).data('id'), { method: "DELETE" });
+         const res_1 = await res.json();
+         console.log('Deleted:', res_1.message);
+         return res_1;
+     }
+     catch (err) {
+         return console.error(err);
+     }
+ }
+
+
+);

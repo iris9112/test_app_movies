@@ -33,3 +33,11 @@ class MovieViewSet(LoginRequiredMixin, viewsets.ModelViewSet):
     queryset = Movie.objects.all().order_by('title')
     serializer_class = MovieSerializer
 
+    def destroy(self, request, *args, **kwargs):
+        try:
+            instance = self.get_object()
+            self.perform_destroy(instance)
+        except Http404:
+            pass
+        return Response(status=status.HTTP_204_NO_CONTENT)
+

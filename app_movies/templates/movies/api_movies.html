@@ -1,9 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>API MOVIES</h2>
+  <h2>Example use api</h2>
+  <p>List objects</p>
   <a class="nav-link" href="{% url 'movies:movie-list' %}">Movies List</a>
   <a class="nav-link" href="{% url 'movies:category-list' %}">Categories List</a>
   <a class="nav-link" href="{% url 'movies:keyword-list' %}">KeyWords List</a>
+  <br>
+  <p>Detail objects</p>
+  <a class="nav-link" href="{% url 'movies:movie-detail' 1 %}">Movies detail: 1</a>
+  <a class="nav-link" href="{% url 'movies:category-detail' 1  %}">Categories detail: 1</a>
+  <a class="nav-link" href="{% url 'movies:keyword-detail' 1 %}">KeyWords detail: 1</a>
+
 
 {% endblock %}
