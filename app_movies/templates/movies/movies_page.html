@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <p>Page for movies</p>
+  <!-- <a class="nav-link" href="{% url 'movies:movie-list' %}">Movies List</a> -->
+  
+<div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th>Movie</th>
+            <th>Detail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+                <div id="movies-list"></div>
+            </td>
+            <td>
+                <div id="detail-list"></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="modalUpdate" role="dialog">
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Update Movie</h4>
+          </div>
+          <div class="modal-body" id="formUpdate">
+                        
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+{% endblock %}
+
+{% block scripts %}
+  <script src="{% static 'js/custom.js' %}"></script>
+{% endblock %}
